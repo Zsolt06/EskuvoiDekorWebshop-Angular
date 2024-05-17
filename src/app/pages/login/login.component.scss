@@ -1,0 +1,17 @@
+/* login.component.css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .login-card {
+    width: 300px; /* Set card width */
+  }
+  
+  .full-width {
+    width: 100%; /* Set form elements to full width */
+    margin-bottom: 16px; /* Add margin between form fields and button */
+  }
+  

@@ -1,0 +1,40 @@
+/* main.component.scss */
+.main-container {
+  padding: 20px;
+
+  .product-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .product-card {
+      margin-bottom: 20px;
+      width: calc(33.33% - 20px); /* Adjust as needed */
+      max-width: 100%; /* Adjust max-width as needed */
+
+      mat-card {
+        height: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .product-container {
+      justify-content: center;
+
+      .product-card {
+        width: calc(50% - 20px); /* Two cards per row on smaller screens */
+        max-width: none; /* Remove max-width for better responsiveness */
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .product-container {
+      .product-card {
+        width: calc(100% - 20px); /* Full width for one card per row on phones */
+      }
+    }
+  }
+}

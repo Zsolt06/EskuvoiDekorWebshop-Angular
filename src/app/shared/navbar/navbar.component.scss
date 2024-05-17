@@ -1,0 +1,20 @@
+.mat-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container {
+  margin-right: 16px; /* Adjust margin as needed */
+}
+
+.logo-image {
+  height: 40px; /* Set height for the logo */
+}
+
+.search-field {
+  min-width: 400px; /* Set a minimum width for the search field */
+}
+
+.example-spacer {
+  flex: 1; /* Allow this spacer to grow and push the search field to the right */
+}

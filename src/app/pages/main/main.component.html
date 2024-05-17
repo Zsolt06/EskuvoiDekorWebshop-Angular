@@ -1,0 +1,26 @@
+<!-- main.component.html -->
+<!-- main.component.html -->
+<div class="main-container">
+    <h1>Welcome to the Decor Webshop</h1>
+  
+    <div class="product-container" fxLayout="row wrap" fxLayout.gt-sm="row">
+      <div class="product-card" fxFlex="calc(33.33% - 20px)" fxFlex.gt-sm="calc(33.33% - 20px)" *ngFor="let product of products">
+        <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{ product.name }}</mat-card-title>
+              <mat-card-subtitle>{{ product.category.name }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="path/to/product/image.jpg" alt="{{ product.name }}">
+            <mat-card-content>
+              <p>{{ product.description }}</p>
+              <p>Price: {{ product.price | currency }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button color="primary">View Details</button>
+              <button mat-button color="accent">Add to Cart</button>
+            </mat-card-actions>
+          </mat-card>
+      </div>
+    </div>
+  </div>
+  
