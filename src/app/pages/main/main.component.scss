@@ -1,6 +1,18 @@
 /* main.component.scss */
+.hello {
+  font-size: 24px;
+  color: #3f51b5;
+  padding: 10px;
+}
+
 .main-container {
   padding: 20px;
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   .product-container {
     margin-top: 20px;
@@ -12,6 +24,9 @@
       margin-bottom: 20px;
       width: calc(33.33% - 20px);
       max-width: 100%;
+      border: 2px solid #3f51b5;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 
       mat-card {
         height: 100%;
@@ -19,22 +34,15 @@
     }
   }
 
-  @media screen and (max-width: 768px) {
-    .product-container {
-      justify-content: center;
-
-      .product-card {
-        width: calc(50% - 20px);
-        max-width: none;
-      }
+  @media screen and (max-width: 1000px) and (min-width: 701px) {
+    .product-container .product-card {
+      width: calc(50% - 20px); /* 2 cards in a row */
     }
   }
 
-  @media screen and (max-width: 480px) {
-    .product-container {
-      .product-card {
-        width: calc(100% - 20px);
-      }
+  @media screen and (max-width: 700px) {
+    .product-container .product-card {
+      width: calc(100% - 20px); /* 1 card in a row */
     }
   }
 }

@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule)
   },
+  { 
+    path: 'cart', 
+    loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule) 
+  },
   {
     path: '',
     redirectTo: 'main',

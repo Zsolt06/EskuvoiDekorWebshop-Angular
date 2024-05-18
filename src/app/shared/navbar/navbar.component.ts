@@ -35,6 +35,5 @@ export class NavbarComponent {
 
   search(query: string) {
     console.log('Search query:', query);
-    // Implement your search logic here
   }
 }

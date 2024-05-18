@@ -1,15 +1,16 @@
 <!-- main.component.html -->
 <div class="main-container">
-  <p *ngIf="currentUserName">Üdvözöljük, {{ currentUserName }}!</p>
-
-  <div class="sort-container">
-    <mat-form-field>
-      <mat-label>Rendezés</mat-label>
-      <mat-select (selectionChange)="sortProducts($event.value)">
-        <mat-option value="name">Név szerint</mat-option>
-        <mat-option value="price">Ár szerint</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <div class="header-container">
+    <p class="hello" *ngIf="currentUserName">Üdvözöljük, {{ currentUserName }}!</p>
+    <div class="sort-container">
+      <mat-form-field>
+        <mat-label>Rendezés</mat-label>
+        <mat-select (selectionChange)="sortProducts($event.value)">
+          <mat-option value="name">Név szerint</mat-option>
+          <mat-option value="price">Ár szerint</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 
   <div class="product-container" fxLayout="row wrap" fxLayout.gt-sm="row">

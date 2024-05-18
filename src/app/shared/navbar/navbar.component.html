@@ -15,22 +15,41 @@
         <mat-icon>search</mat-icon>
     </button>
 
-    <button routerLink="" mat-button>Főoldal</button>
+    <button routerLink="" mat-button class="desktop">Főoldal</button>
+    <button routerLink="" mat-icon-button class="mobile">
+        <mat-icon>home</mat-icon>
+    </button>
 
-    <button *ngIf="(isLoggedIn$ | async) !== null" (click)="logout()" mat-button>Kilépés</button>
-    <button *ngIf="(isLoggedIn$ | async) === null" routerLink="login" mat-button>Belépés</button>
-    <button *ngIf="(isLoggedIn$ | async) === null" routerLink="register" mat-button>Regisztráció</button>
+    <button *ngIf="(isLoggedIn$ | async) !== null" routerLink="cart" mat-button class="desktop">Kosár</button>
+    <button *ngIf="(isLoggedIn$ | async) !== null" routerLink="cart" mat-icon-button class="mobile">
+        <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+    <button *ngIf="(isLoggedIn$ | async) !== null" (click)="logout()" mat-button class="desktop">Kilépés</button>
+    <button *ngIf="(isLoggedIn$ | async) !== null" (click)="logout()" mat-icon-button class="mobile">
+        <mat-icon>logout</mat-icon>
+    </button>
+
+    <button *ngIf="(isLoggedIn$ | async) === null" routerLink="login" mat-button class="desktop">Belépés</button>
+    <button *ngIf="(isLoggedIn$ | async) === null" routerLink="login" mat-icon-button class="mobile">
+        <mat-icon>login</mat-icon>
+    </button>
+
+    <button *ngIf="(isLoggedIn$ | async) === null" routerLink="register" mat-button class="desktop">Regisztráció</button>
+    <button *ngIf="(isLoggedIn$ | async) === null" routerLink="register" mat-icon-button class="mobile">
+        <mat-icon>person_add</mat-icon>
+    </button>
 
 </mat-toolbar>
 
 <div *ngIf="showSearchField" class="mobile-search">
     <mat-form-field class="mobile-search-field">
         <input matInput placeholder="Search" aria-label="Search" #mobileSearchInput>
-        <button mat-icon-button (click)="search(mobileSearchInput.value)">
-            <mat-icon>search</mat-icon>
-        </button>
-        <button mat-icon-button (click)="toggleSearch()">
-            <mat-icon>close</mat-icon>
-        </button>
     </mat-form-field>
+    <button mat-icon-button (click)="search(mobileSearchInput.value)">
+        <mat-icon>search</mat-icon>
+    </button>
+    <button mat-icon-button (click)="toggleSearch()">
+        <mat-icon>close</mat-icon>
+    </button>
 </div>
