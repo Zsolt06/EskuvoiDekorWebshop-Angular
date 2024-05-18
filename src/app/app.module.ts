@@ -17,7 +17,6 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { env } from '../env/env';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
-import { FormatPricePipe } from './shared/pipes/format-price.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { FormatPricePipe } from './shared/pipes/format-price.pipe';
     CartComponent,
     ProductComponent,
     NavbarComponent,
-    FormatPricePipe
   ],
   imports: [
     BrowserModule,
