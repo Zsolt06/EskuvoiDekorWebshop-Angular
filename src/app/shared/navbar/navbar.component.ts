@@ -7,8 +7,14 @@ import { Component } from '@angular/core';
 })
 
 export class NavbarComponent {
-  search(searchTerm: string) {
-    // Add your search logic here based on the searchTerm
-    console.log('Searching for:', searchTerm);
+  showSearchField = false;
+
+  toggleSearch() {
+    this.showSearchField = !this.showSearchField;
+  }
+
+  search(query: string) {
+    console.log('Search query:', query);
+    // Implement your search logic here
   }
 }

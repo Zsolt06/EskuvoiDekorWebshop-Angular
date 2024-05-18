@@ -4,17 +4,41 @@
 }
 
 .logo-container {
-  margin-right: 16px; /* Adjust margin as needed */
+  margin-right: 16px;
 }
 
 .logo-image {
-  height: 40px; /* Set height for the logo */
-}
-
-.search-field {
-  min-width: 400px; /* Set a minimum width for the search field */
+  height: 40px;
 }
 
 .example-spacer {
-  flex: 1; /* Allow this spacer to grow and push the search field to the right */
+  flex: 1;
+}
+
+.search-field {
+  min-width: 300px;
+  @media (max-width: 1000px) {
+    display: none;
+  }
+}
+
+.search-icon {
+  display: none;
+  @media (max-width: 1000px) {
+    display: block;
+  }
+}
+
+.mobile-search {
+  display: none;
+  background-color: #fff;
+  padding: 10px;
+  @media (max-width: 1000px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.mobile-search-field {
+  width: 100%;
 }

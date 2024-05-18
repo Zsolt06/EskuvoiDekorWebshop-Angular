@@ -1,9 +1,8 @@
+import { Product } from "./Product";
+
 export interface User {
     id: string;
     email: string;
-    username: string;
-    name: {
-        firstname: string;
-        lastname: string;
-    }
+    name: string;
+    cart: Array<Product>;
 }
