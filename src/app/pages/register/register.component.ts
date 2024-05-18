@@ -48,10 +48,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
     }
       this.authService.register(emailValue, passwordValue).then(cred => {
         let auth = getAuth();
-        let user = auth.currentUser;    
+        let user = auth.currentUser;
         this.database.createUser(emailValue, passwordValue, nameValue, user?.uid ?? '', roleValue).then(cred2 =>{
           console.log(cred2);
         });
+        
         this.router.navigateByUrl('/login');
       }).catch(error => {
         switch (error.code) {
@@ -72,6 +73,5 @@ export class RegisterComponent implements OnInit, OnDestroy {
             break;
         }
       });
-
   }
 }

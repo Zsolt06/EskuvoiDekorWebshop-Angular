@@ -10,8 +10,8 @@
 
     .product-card {
       margin-bottom: 20px;
-      width: calc(33.33% - 20px); /* Adjust as needed */
-      max-width: 100%; /* Adjust max-width as needed */
+      width: calc(33.33% - 20px);
+      max-width: 100%;
 
       mat-card {
         height: 100%;
@@ -24,8 +24,8 @@
       justify-content: center;
 
       .product-card {
-        width: calc(50% - 20px); /* Two cards per row on smaller screens */
-        max-width: none; /* Remove max-width for better responsiveness */
+        width: calc(50% - 20px);
+        max-width: none;
       }
     }
   }
@@ -33,7 +33,7 @@
   @media screen and (max-width: 480px) {
     .product-container {
       .product-card {
-        width: calc(100% - 20px); /* Full width for one card per row on phones */
+        width: calc(100% - 20px);
       }
     }
   }

@@ -1,3 +1,4 @@
 <app-navbar></app-navbar>
-
+<div *ngIf="authService.currentUser() | async as user">User is logged IN: {{ user.email }}</div>
+<div *ngIf="!(authService.currentUser() | async)">User is logged OUT</div>
 <router-outlet></router-outlet>

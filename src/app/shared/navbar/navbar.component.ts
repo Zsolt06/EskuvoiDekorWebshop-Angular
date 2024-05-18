@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthenticationService } from '../services/authentication.service';
+import firebase from 'firebase/compat/app';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +11,22 @@ import { Component } from '@angular/core';
 })
 
 export class NavbarComponent {
+  isLoggedIn$!: Observable<firebase.User | null>;
+
+  constructor(private authService: AuthenticationService, private router: Router) {}
+
+  ngOnInit() {
+    this.isLoggedIn$ = this.authService.isUserLoggedIn();
+  }
+
+  logout() {
+    this.authService.logout().then(() => {
+      this.router.navigate(['/']).then(() => {
+        window.location.reload();
+      });
+    });
+  }
+
   showSearchField = false;
 
   toggleSearch() {

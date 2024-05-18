@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { deleteUser } from 'firebase/auth';
+import { Observable } from 'rxjs';
+import firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root'
@@ -17,21 +19,24 @@ export class AuthenticationService {
     return this.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  isUserLoggedIn() {
+  isUserLoggedIn(): Observable<firebase.User | null> {
     return this.auth.user;
   }
 
   logout() {
     return this.auth.signOut();
   }
-  currentUser() {
-    return this.auth.currentUser;
+
+  currentUser(): Observable<firebase.User | null> {
+    return this.auth.user;
   }
+  
   deleteUser() {
-    this.auth.currentUser.then(user => {
-      user?.delete();
+    return this.auth.currentUser.then(user => {
+      return user?.delete();
     });
   }
+
   resetPassword(email: string) {
     return this.auth.sendPasswordResetEmail(email);
   }

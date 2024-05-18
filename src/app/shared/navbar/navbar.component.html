@@ -1,10 +1,11 @@
+<!-- navbar.component.html -->
 <mat-toolbar color="primary" class="mat-elevation-z8">
     <span>Esküvői dekor webshop</span>
 
     <span class="example-spacer"></span>
 
     <mat-form-field class="search-field">
-        <input matInput placeholder="Search" aria-label="Search" #searchInput>
+        <input matInput placeholder="Keresés" aria-label="Search" #searchInput>
         <button mat-icon-button (click)="search(searchInput.value)">
             <mat-icon>search</mat-icon>
         </button>
@@ -14,39 +15,14 @@
         <mat-icon>search</mat-icon>
     </button>
 
-    <button routerLink="" mat-button>Home</button>
-    <button [matMenuTriggerFor]="lvl1master" mat-button>Master</button>
-    <mat-menu #lvl1master="matMenu">
-        <button [matMenuTriggerFor]="company" mat-menu-item>Company</button>
-        <button [matMenuTriggerFor]="customer" mat-menu-item>Customer</button>
-        <button [matMenuTriggerFor]="product" mat-menu-item>Product</button>
-    </mat-menu>
+    <button routerLink="" mat-button>Főoldal</button>
 
-    <mat-menu #company="matMenu">
-        <button mat-menu-item>Term</button>
-        <button mat-menu-item>Tax</button>
-        <button mat-menu-item>Currency</button>
-    </mat-menu>
-    <mat-menu #customer="matMenu">
-        <button mat-menu-item>Type</button>
-        <button mat-menu-item>Tax</button>
-    </mat-menu>
-    <mat-menu #product="matMenu">
-        <button mat-menu-item>Category</button>
-        <button [matMenuTriggerFor]="variant" mat-menu-item>Variant</button>
-        <button mat-menu-item>UOM</button>
-    </mat-menu>
+    <button *ngIf="(isLoggedIn$ | async) !== null" (click)="logout()" mat-button>Kilépés</button>
+    <button *ngIf="(isLoggedIn$ | async) === null" routerLink="login" mat-button>Belépés</button>
+    <button *ngIf="(isLoggedIn$ | async) === null" routerLink="register" mat-button>Regisztráció</button>
 
-    <mat-menu #variant="matMenu">
-        <button mat-menu-item>Color</button>
-        <button mat-menu-item>Size</button>
-    </mat-menu>
-
-    <button routerLink="login" mat-button>Login</button>
-    <button routerLink="register" mat-button>Register</button>
 </mat-toolbar>
 
-<!-- Expanded search field for small screens -->
 <div *ngIf="showSearchField" class="mobile-search">
     <mat-form-field class="mobile-search-field">
         <input matInput placeholder="Search" aria-label="Search" #mobileSearchInput>
