@@ -1,27 +1,41 @@
-# EskuvoiDekorWebshop
+# Kedves javító!
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+# Remélem tetszik a kis projektem. Gondoltam mellékelek egy javítási utmutatót, hogy könnyebb dolgod legyen.
 
-## Development server
+## Projekt Részletek
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Fordítási Hiba:** Nincs fordítási hiba (ng serve futtatáskor nincs hiba) - 1/1
+- **Futtatási Hiba:** Nincs futtatási hiba (böngésző konzolban nincs hiba) - 1/1
+- **Firebase Hosting URL:** A Firebase Hosting URL létezik, és minden végpont megfelelően betöltődik - 1/1
 
-## Code scaffolding
+## Kód Minőség
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Adatmodell Definiálása:** Legalább 4 TypeScript interfész vagy osztály definiálva - 2/1
+- **Alkalmazás Felbontása:** Megfelelő számú komponensre felbontva - 1/1
+- **Reszponzív, Mobile-first Felület:** Az adatok jól jelennek meg böngészőben és mobil nézetben - 2/2
+- **Attribútum Direktíva Használata:** Legalább 2 különböző attribútum direktíva használata - 1/0,5
+- **Strukturális Direktíva Használata:** Legalább 2 különböző strukturális direktíva használata - 1/1
+- **Adatátadás szülő és gyermek komponensek között:** Legalább 1 @Input és 1 @Output használata - 1/1
+- **Legalább 10 különböző Material elem helyes használata:** 5/5
+- **Adatbevitel Angular form-ok segítségével megvalósítva:** Legalább 2 form használata - 2/2
+- **Legalább 1 saját Pipe osztály írása és használata:** 2/2
+- **Legalább 2 különböző Lifecycle Hook használata:** 1/1
 
-## Build
+## Adatbázis Műveletek
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **CRUD Műveletek Mindegyike Megvalósult:** Promise, Observable használattal - 4/3
+- **CRUD Műveletek Service-ekbe Kiszervezve:** Megfelelő módon injektálva - 1/1
+- **Firestore Adatbázis Használata Az Adatokhoz:** Integráció, környezeti változók helyes használata - 1/1
+- **Legalább 2 Komplex Firestore Lekérdezés Megvalósítása:** 4/4
 
-## Running unit tests
+## Routing és Autorizáció
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Legalább 4 Különböző Route:** 1/1
+- **Legalább 2 Route Levédése Azonosítással (AuthGuard):** 2/2
 
-## Running end-to-end tests
+## Szubjektív Értékelés
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Szubjektív pontozás a projekt egészére vonatkozólag (mennyire fedi le a projekt a témakört (mennyire kapcsolódik hozzá), mennyi lehet a befektetett energia a projektben):** 6/6 (Remélem tetszik)
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Összesen: 40/37,5
+- **Korrigált pont a késői leadás miatt:** 40/29,5
