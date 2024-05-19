@@ -1,8 +1,5 @@
 {
   "projects": {
-    "eskuvoidekorwebshop-angular": "eskuvoidekorwebshop-angular"
-  },
-  "targets": {},
-  "etags": {},
-  "dataconnectEmulatorConfig": {}
+    "default": "eskuvoidekorwebshop-angular"
+  }
 }
