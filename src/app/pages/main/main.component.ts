@@ -1,9 +1,10 @@
 import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Product } from '../../shared/models/Product';
 import { ProductsService } from '../../shared/services/products.service';
-import { DatabaseService } from '../../shared/services/database.service';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import firebase from 'firebase/compat/app';
+import { UsersService } from '../../shared/services/users.service';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-main',
@@ -23,26 +24,34 @@ export class MainComponent implements OnInit, DoCheck {
 
   constructor(
     private productsService: ProductsService,
-    private dbService: DatabaseService,
-    private authService: AuthenticationService
+    private userService: UsersService,
+    private authService: AuthenticationService,
+    private cartService: CartService,
   ) {}
 
   async ngOnInit(): Promise<void> {
+    await this.productsService.loadProducts();
     this.products = this.productsService.getProducts();
+    console.log("Lefutottam!");
   
     this.authService.currentUser().subscribe(user => {
       this.currentUser = user;
       if (this.currentUser) {
-        this.dbService.getUserRole(this.currentUser.uid).then(role => {
+        this.userService.getUserRole(this.currentUser.uid).then(role => {
           this.currentUserRole = role;
           console.log(role);
         });
-        this.dbService.getUserName(this.currentUser.uid).then(name => {
+        this.userService.getUserName(this.currentUser.uid).then(name => {
           this.currentUserName = name;
           console.log(name);
         });
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.productsService.clearProducts();
+    console.log('MainComponent destroyed!');
   }
 
   ngDoCheck(): void {
@@ -71,10 +80,11 @@ export class MainComponent implements OnInit, DoCheck {
 
   async addToCart(productId: string) {
     if (this.currentUser) {
-      console.log(`Product ${productId} added to the cart.`);
+      await this.cartService.addToCart(productId);
+      alert(`Product ${productId} added to the cart.`);
+      //console.log(`Product ${productId} added to the cart.`);
     } else {
       alert('Jelentkezz be a vásárláshoz!');
     }
   }
-  
 }

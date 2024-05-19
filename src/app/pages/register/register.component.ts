@@ -3,8 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { DatabaseService } from '../../shared/services/database.service';
 import { getAuth } from '@angular/fire/auth';
+import { UsersService } from '../../shared/services/users.service';
 
 @Component({
   selector: 'app-register',
@@ -26,7 +26,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {}
   ngOnInit(): void {}
 
-  constructor(private authService: AuthenticationService, private router: Router, private database: DatabaseService){}
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router,
+    private userService: UsersService,
+  ){}
 
   async register(event: Event){
     event.preventDefault();
@@ -49,7 +53,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       this.authService.register(emailValue, passwordValue).then(cred => {
         let auth = getAuth();
         let user = auth.currentUser;
-        this.database.createUser(emailValue, passwordValue, nameValue, user?.uid ?? '', roleValue).then(cred2 =>{
+        this.userService.createUser(emailValue, passwordValue, nameValue, user?.uid ?? '', roleValue).then(cred2 =>{
           console.log(cred2);
         });
         

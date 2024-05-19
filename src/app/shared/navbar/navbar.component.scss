@@ -8,7 +8,7 @@
   flex: 1;
 }
 
-.search-field {
+/*.search-field {
   min-width: 300px;
   //background-color: #4050B5;
   @media (max-width: 1000px) {
@@ -42,10 +42,10 @@
   input {
     font-size: 14px;
   }
-}
+}*/
 
 .desktop {
-  @media (max-width: 1000px) {
+  @media (max-width: 700px) {
     display: none;
   }
 }
@@ -53,7 +53,7 @@
 .mobile {
   display: none;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 700px) {
     display: block;
   }
 }

@@ -4,16 +4,16 @@
 
     <span class="example-spacer"></span>
 
-    <mat-form-field class="search-field">
+    <!-- <mat-form-field class="search-field">
         <input matInput placeholder="Keresés" aria-label="Search" #searchInput>
         <button mat-icon-button (click)="search(searchInput.value)">
             <mat-icon>search</mat-icon>
         </button>
-    </mat-form-field>
+    </mat-form-field> 
 
     <button mat-icon-button class="search-icon" (click)="toggleSearch()">
         <mat-icon>search</mat-icon>
-    </button>
+    </button> -->
 
     <button routerLink="" mat-button class="desktop">Főoldal</button>
     <button routerLink="" mat-icon-button class="mobile">
@@ -42,7 +42,7 @@
 
 </mat-toolbar>
 
-<div *ngIf="showSearchField" class="mobile-search">
+<!-- <div *ngIf="showSearchField" class="mobile-search">
     <mat-form-field class="mobile-search-field">
         <input matInput placeholder="Search" aria-label="Search" #mobileSearchInput>
     </mat-form-field>
@@ -52,4 +52,4 @@
     <button mat-icon-button (click)="toggleSearch()">
         <mat-icon>close</mat-icon>
     </button>
-</div>
+</div> -->

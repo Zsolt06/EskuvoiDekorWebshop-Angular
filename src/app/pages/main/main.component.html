@@ -1,6 +1,11 @@
 <!-- main.component.html -->
 <div class="main-container">
-  <p class="hello" *ngIf="currentUserName">Üdvözöljük, {{ currentUserName }}!</p>
+  <p class="hello" *ngIf="currentUserName">
+    Üdvözöljük, {{ currentUserName }} 
+    <span *ngIf="currentUserRole == 'admin'">adminisztrátor</span>
+    <span *ngIf="currentUserRole == 'user'">felhasználó</span>!
+  </p>
+  
   <div class="header-container">
     <div class="sort-container">
       <app-select-child [selectedValue]="parentValue" (valueChanged)="onValueChanged($event)"></app-select-child>

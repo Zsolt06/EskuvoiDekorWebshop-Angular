@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/Product';
-import { DatabaseService } from './database.service';
-import { collection, getDocs, limit, orderBy, query } from '@angular/fire/firestore';
+import { Firestore, collection, deleteDoc, doc, getDoc, getDocs, orderBy, query } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +8,7 @@ import { collection, getDocs, limit, orderBy, query } from '@angular/fire/firest
 export class ProductsService {
   private products: Product[] = [];
 
-  constructor(private dbService: DatabaseService) { 
-    this.loadProducts();
-  }
-
-  async loadProducts() {
-    const productCollection = collection(this.dbService.firestore, 'product');
-    const productSnapshot = await getDocs(productCollection);
-    productSnapshot.forEach(async (doc) => {
-      const productData = await this.dbService.getProductData(doc.id);
-      if (productData) {
-        this.products.push(productData);
-      }
-    });
-  }
+  constructor(public firestore: Firestore) { }
 
   getProducts(): Product[] {
     return this.products;
@@ -32,23 +18,59 @@ export class ProductsService {
     return this.products.find(product => product.id === id);
   }
 
+  async loadProducts() {
+    const productCollection = collection(this.firestore, 'product');
+    const productSnapshot = await getDocs(productCollection);
+    productSnapshot.forEach(async (doc) => {
+      const productData = await this.getProductData(doc.id);
+      if (productData) {
+        this.products.push(productData);
+      }
+    });
+  }
+
+  async getProductData(documentId: string): Promise<Product | null> {
+    const docSnap = await getDoc(doc(this.firestore, 'product', documentId));
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      if (data) {
+        return {
+          id: documentId,
+          name: data['name'],
+          description: data['description'],
+          price: data['price'],
+          category: data['category'],
+        } as Product;
+      }
+    } else {
+      console.log('No such document!');
+    }
+    return null;
+  }
+
   async sortProductsByName(): Promise<Product[]> {
-    const productCollection = collection(this.dbService.firestore, 'product');
-    const q = query(productCollection, orderBy('name'), limit(10));
+    const productCollection = collection(this.firestore, 'product');
+    const q = query(productCollection, orderBy('name'));
     const productSnapshot = await getDocs(q);
     this.products = productSnapshot.docs.map(doc => doc.data() as Product);
     return this.products;
   }
 
   async sortProductsByPrice(): Promise<Product[]> {
-    const productCollection = collection(this.dbService.firestore, 'product');
-    const q = query(productCollection, orderBy('price'), limit(10));
+    const productCollection = collection(this.firestore, 'product');
+    const q = query(productCollection, orderBy('price'));
     const productSnapshot = await getDocs(q);
     this.products = productSnapshot.docs.map(doc => doc.data() as Product);
     return this.products;
   }
-  async deleteProduct(id: string) {
-    await this.dbService.deleteProduct(id);
-    this.products = this.products.filter(product => product.id !== id);
+
+  async deleteProduct(productId: string): Promise<void> {
+    const productRef = doc(this.firestore, 'product', productId);
+    await deleteDoc(productRef);
+    this.products = this.products.filter(product => product.id !== productId);
+  }
+
+  clearProducts(): void {
+    this.products = [];
   }
 }
