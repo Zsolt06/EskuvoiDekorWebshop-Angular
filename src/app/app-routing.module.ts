@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'main',
-    loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule)
+    loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -16,7 +18,8 @@ const routes: Routes = [
   },
   { 
     path: 'cart', 
-    loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule) 
+    loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '',

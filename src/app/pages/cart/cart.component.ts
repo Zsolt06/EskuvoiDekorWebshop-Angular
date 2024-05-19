@@ -7,14 +7,5 @@ import { CartService } from '../../shared/services/cart.service';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
-export class CartComponent implements OnInit {
-  cart: Cart | null = null;
-
-  constructor(private cartService: CartService) { }
-
-  ngOnInit(): void {
-    this.cartService.loadCart().then(() => {
-      this.cart = this.cartService.getCart();
-    });
-  }
+export class CartComponent {
 }

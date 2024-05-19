@@ -80,9 +80,7 @@ export class MainComponent implements OnInit, DoCheck {
 
   async addToCart(productId: string) {
     if (this.currentUser) {
-      await this.cartService.addToCart(productId);
-      alert(`Product ${productId} added to the cart.`);
-      //console.log(`Product ${productId} added to the cart.`);
+      
     } else {
       alert('Jelentkezz be a vásárláshoz!');
     }

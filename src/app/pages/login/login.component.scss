@@ -7,7 +7,7 @@
   }
   
   .login-card {
-    width: 300px; /* Set card width */
+    width: 400px; /* Set card width */
   }
   
   .full-width {
@@ -15,3 +15,8 @@
     margin-bottom: 16px; /* Add margin between form fields and button */
   }
   
+  p{
+    text-align: center; /* Center text */
+    color: red;
+    font-weight: bold;
+  }
