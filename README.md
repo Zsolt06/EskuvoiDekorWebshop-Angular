@@ -1,15 +1,11 @@
 # Kedves javító!
 
-# Remélem tetszik a kis projektem. Gondoltam mellékelek egy javítási utmutatót, hogy könnyebb dolgod legyen.
+Remélem tetszik a kis projektem. Gondoltam mellékelek egy javítási utmutatót, hogy könnyebb dolgod legyen.
 
-## Projekt Részletek
-
+## Megvalósítva:
 - **Fordítási Hiba:** Nincs fordítási hiba (ng serve futtatáskor nincs hiba) - 1/1
 - **Futtatási Hiba:** Nincs futtatási hiba (böngésző konzolban nincs hiba) - 1/1
 - **Firebase Hosting URL:** A Firebase Hosting URL létezik, és minden végpont megfelelően betöltődik - 1/1
-
-## Kód Minőség
-
 - **Adatmodell Definiálása:** Legalább 4 TypeScript interfész vagy osztály definiálva - 2/1
 - **Alkalmazás Felbontása:** Megfelelő számú komponensre felbontva - 1/1
 - **Reszponzív, Mobile-first Felület:** Az adatok jól jelennek meg böngészőben és mobil nézetben - 2/2
@@ -20,22 +16,13 @@
 - **Adatbevitel Angular form-ok segítségével megvalósítva:** Legalább 2 form használata - 2/2
 - **Legalább 1 saját Pipe osztály írása és használata:** 2/2
 - **Legalább 2 különböző Lifecycle Hook használata:** 1/1
-
-## Adatbázis Műveletek
-
 - **CRUD Műveletek Mindegyike Megvalósult:** Promise, Observable használattal - 4/3
 - **CRUD Műveletek Service-ekbe Kiszervezve:** Megfelelő módon injektálva - 1/1
 - **Firestore Adatbázis Használata Az Adatokhoz:** Integráció, környezeti változók helyes használata - 1/1
 - **Legalább 2 Komplex Firestore Lekérdezés Megvalósítása:** 4/4
-
-## Routing és Autorizáció
-
 - **Legalább 4 Különböző Route:** 1/1
 - **Legalább 2 Route Levédése Azonosítással (AuthGuard):** 2/2
-
-## Szubjektív Értékelés
-
-- **Szubjektív pontozás a projekt egészére vonatkozólag (mennyire fedi le a projekt a témakört (mennyire kapcsolódik hozzá), mennyi lehet a befektetett energia a projektben):** 6/6 (Remélem tetszik)
+- **Szubjektív pontozás a projekt egészére vonatkozólag:** 6/6 (Remélem tetszik)
 
 ## Összesen: 40/37,5
 - **Korrigált pont a késői leadás miatt:** 40/29,5
