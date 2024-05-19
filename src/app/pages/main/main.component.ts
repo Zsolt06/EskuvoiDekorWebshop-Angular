@@ -57,6 +57,14 @@ export class MainComponent implements OnInit, DoCheck {
     }
   }
 
+  parentValue = '';
+
+  onValueChanged(newValue: string) {
+    console.log('Az új érték:', newValue);
+    this.parentValue = newValue;
+    this.sortProducts(newValue);
+  }
+
   async deleteProduct(id: string) {
     await this.productsService.deleteProduct(id);
   }

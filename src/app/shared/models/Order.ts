@@ -5,6 +5,4 @@ export interface Order {
     userId: string;
     products: Product[];
     totalPrice: number;
-    status: 'pending' | 'processing' | 'shipped' | 'delivered';
-    createdAt: Date;
   }

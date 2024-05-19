@@ -1,0 +1,8 @@
+<mat-form-field>
+    <mat-label>Rendezés</mat-label>
+    <mat-select [(ngModel)]="selected" (selectionChange)="onSelectionChange($event.value)">
+        <mat-option *ngFor="let option of options" [value]="option.value">
+          {{ option.viewValue }}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
